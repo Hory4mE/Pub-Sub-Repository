@@ -1,12 +1,13 @@
 import { ISubscriber } from "@interface";
+import { Inject, Service } from "typedi";
 import { Machine } from "../../repositories/MachineRepository";
 import { MachineSaleEvent } from "../events/MachineSaleEvent";
 
-// Subscriber สำหรับการขายสินค้า จะลดสต็อกของเครื่องที่เกี่ยวข้อง
+@Service()
 export class MachineSaleSubscriber implements ISubscriber {
-  constructor(private machines: Machine[]) {}
+  // Inject machines แทนการรับจาก Constructor ธรรมดา
+  constructor(@Inject("machines") private machines: Machine[]) {}
 
-  // จัดการ Event Refill สินค้า โดยเพิ่มสต็อกของเครื่องที่เกี่ยวข้อง
   handle(event: MachineSaleEvent): void {
     const machine = this.machines.find(m => m.id === event.machineId());
     if (machine) {
