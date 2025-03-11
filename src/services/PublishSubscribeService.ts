@@ -1,5 +1,6 @@
 import { IEvent, IPublishSubscribeService, ISubscriber } from "../interfaces";
 
+// คลาสนี้คือหัวใจของระบบ Pub-Sub ซึ่งจัดการการเผยแพร่อีเวนต์และการสมัครสมาชิก
 export class PublishSubscribeService implements IPublishSubscribeService {
   private subscribers: Map<string, ISubscriber[]> = new Map();
 

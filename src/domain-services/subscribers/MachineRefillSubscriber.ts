@@ -2,6 +2,7 @@ import { ISubscriber } from "@interface";
 import { Machine } from "../../repositories/MachineRepository";
 import { MachineRefillEvent } from "../events/MachineRefillEvent";
 
+// Subscriber สำหรับการเติมสินค้า จะเพิ่มสต็อกของเครื่องที่เกี่ยวข้อง
 export class MachineRefillSubscriber implements ISubscriber {
   constructor(private machines: Machine[]) {}
 
