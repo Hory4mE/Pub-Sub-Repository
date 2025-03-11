@@ -1,9 +1,11 @@
+import { Service } from "typedi";
+
+@Service()
 export class Machine {
-    public stockLevel = 10;
-    public id: string;
-  
-    constructor(id: string) {
-      this.id = id;
-    }
+  public stockLevel = 10;
+  public id: string;
+
+  constructor(id: string) {
+    this.id = id;
   }
-  
+}
